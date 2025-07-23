@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yt-dlp Command Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>yt-dlp Command Generator</h1>
+        <div class="form-container">
+            <div class="form-group">
+                <label for="videoUrls">YouTube Video URLs (one per line):</label>
+                <textarea id="videoUrls" rows="5" placeholder="https://www.youtube.com/watch?v=example1&#10;https://www.youtube.com/watch?v=example2"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="outputDir">Output Directory:</label>
+                <input type="text" id="outputDir" placeholder="D:\VIDEOJUNK" value="D:\VIDEOJUNK">
+            </div>
+
+            <div class="form-group">
+                <label for="filenameTemplate">Filename Template:</label>
+                <input type="text" id="filenameTemplate" placeholder="%(title)s.%(ext)s" value="%(title)s.%(ext)s">
+                <div class="template-help">
+                    <p>Common templates:</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Download Type:</label>
+                <div class="radio-group">
+                    <input type="radio" id="videoAudio" name="downloadType" value="videoAudio" checked>
+                    <label for="videoAudio">Video with Audio</label>
+                    
+                    <input type="radio" id="audioOnly" name="downloadType" value="audioOnly">
+                    <label for="audioOnly">Audio Only</label>
+                    
+                    <input type="radio" id="transcriptOnly" name="downloadType" value="transcriptOnly">
+                    <label for="transcriptOnly">Transcript Only</label>
+                </div>
+            </div>
+
+            <div id="videoOptions" class="form-group">
+                <label for="videoFormat">Video Format:</label>
+                <select id="videoFormat">
+                    <option value="best">Best Available</option>
+                    <option value="mp4">MP4</option>
+                    <option value="webm">WebM</option>
+                </select>
+
+                <label for="videoQuality">Video Quality:</label>
+                <select id="videoQuality">
+                    <option value="best">Best Available</option>
+                    <option value="2160">4K (2160p)</option>
+                    <option value="1440">1440p</option>
+                    <option value="1080">1080p</option>
+                    <option value="720" selected>720p</option>
+                    <option value="480">480p</option>
+                    <option value="360">360p</option>
+                    <option value="240">240p</option>
+                </select>
+            </div>
+
+            <div id="audioOptions" class="form-group hidden">
+                <label for="audioFormat">Audio Format:</label>
+                <select id="audioFormat">
+                    <option value="best">Best Available</option>
+                    <option value="mp3">MP3</option>
+                    <option value="m4a">M4A</option>
+                    <option value="wav">WAV</option>
+                </select>
+
+                <label for="audioQuality">Audio Quality:</label>
+                <select id="audioQuality">
+                    <option value="0">Best</option>
+                    <option value="5">Medium</option>
+                    <option value="9">Worst</option>
+                </select>
+            </div>
+
+            <div id="transcriptOptions" class="form-group hidden">
+                <label for="transcriptFormat">Transcript Format:</label>
+                <select id="transcriptFormat">
+                    <option value="srt">SRT</option>
+                    <option value="vtt">VTT</option>
+                    <option value="ttml">TTML</option>
+                    <option value="json3">JSON</option>
+                    <option value="txt">Plain Text</option>
+                </select>
+
+                <label for="transcriptLang">Language (leave empty for auto):</label>
+                <input type="text" id="transcriptLang" placeholder="en, fr, de, etc." value="en">
+            </div>
+
+            <div class="form-group">
+                <label>Advanced Options:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="playlist">
+                    <label for="playlist">Download Full Playlist</label>
+                    
+                    <input type="checkbox" id="subtitles">
+                    <label for="subtitles">Download Subtitles</label>
+                    
+                    <input type="checkbox" id="thumbnails">
+                    <label for="thumbnails">Download Thumbnails</label>
+                    
+                    <input type="checkbox" id="saveToTextFile">
+                    <label for="saveToTextFile">Save URLs to Text File</label>
+                </div>
+            </div>
+
+            <div id="playlistOptions" class="form-group hidden">
+                <label for="playlistStart">Start at index (optional):</label>
+                <input type="number" id="playlistStart" placeholder="1" min="1">
+                
+                <label for="playlistEnd">End at index (optional):</label>
+                <input type="number" id="playlistEnd" placeholder="Last" min="1">
+            </div>
+
+            <div id="textFileOptions" class="form-group hidden">
+                <label for="textFilename">Text File Name:</label>
+                <input type="text" id="textFilename" placeholder="urls.txt" value="urls.txt">
+            </div>
+
+            <div class="form-group">
+                <button id="generateBtn">Generate Command</button>
+            </div>
+
+            <div class="form-group">
+                <label for="commandOutput">Generated Command:</label>
+                <div class="command-output-container">
+                    <textarea id="commandOutput" rows="4" readonly></textarea>
+                    <button id="copyBtn" title="Copy to clipboard">📋</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
