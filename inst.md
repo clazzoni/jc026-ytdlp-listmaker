@@ -22,3 +22,18 @@ yt-dlp -f "bestvideo[width<=640]+bestaudio/best[width<=640]" -o "D:\VIDEOJUNK\10
 yt-dlp -a DL01.txt -f "bestvideo[width<=640]+bestaudio/best[width<=640]" -o "D:\VIDEOJUNK\110 LABS\%(title)s.%(ext)s"
 
 yt-dlp --list-formats 
+
+
+
+- the video quality should be selectable from a dropdown menu, with options like 'best available', '1080p', '720p', '480p', '360p', '240p' 
+
+- make sure there is a functionality to dowload full playlists, not just single videos.
+
+
+- make the default output directory: D:\VIDEOJUNK
+
+- make the default video quality: 720p
+
+- remove the bullet point text below 'Common templates:'
+
+
