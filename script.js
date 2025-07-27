@@ -221,6 +221,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Scroll to the output
         commandOutput.scrollIntoView({ behavior: 'smooth' });
+        // Also copy the first link to clipboard
+        const urlListRaw = videoUrls.split('\n').map(url => url.trim()).filter(url => url);
+        if (urlListRaw.length > 0) {
+            // Create a temporary textarea to copy the first link
+            const tempTextarea = document.createElement('textarea');
+            tempTextarea.value = urlListRaw[0];
+            document.body.appendChild(tempTextarea);
+            tempTextarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextarea);
+        }
     }
 
     /**
