@@ -66,3 +66,10 @@ The application can generate commands similar to these examples:
 
 - [yt-dlp GitHub Repository](https://github.com/yt-dlp/yt-dlp)
 - [yt-dlp Documentation](https://github.com/yt-dlp/yt-dlp#readme)
+
+
+## JC LOG
+- Install on new computer: PS D:\DJUNK> winget install yt-dlp
+- It will be installed in: C:\Users\jclaeso\AppData\Local\Microsoft\WinGet\Packages
+- Restart terminal and test:  yt-dlp --version
+- To use Vimeo, use login:  yt-dlp --username jcclaeson@gmail.com --password k.....# -f -o "D....
